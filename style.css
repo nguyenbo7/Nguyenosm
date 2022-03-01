@@ -1,0 +1,214 @@
+/*========================= GOOGLE FONTS =========================*/
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@200;300;400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pattaya&family=Poppins:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Barcode+128&display=swap");
+
+/*========================= VARIABLES CSS =========================*/
+:root {
+  /*____________________ Colors ____________________*/
+  --clr-dark: #181818;
+  --clr-gray: #484848;
+  --clr-light: #d4cfc2;
+  --clr-theme: #846a53;
+  --clr-border: #bababa;
+  --clr-hover: orange;
+
+  /*____________________ Font and typography ____________________*/
+  --font-family-title: "Source Serif Pro", serif;
+  --font-family-text1: "Courier Prime", monospace;
+  --font-family-text2: "Poppins", sans-serif;
+  --font-family-barcode: "Libre Barcode 128", cursive;
+
+  /*____________________ Font Size ____________________*/
+  --fs-title: 1.75rem;
+  --fs-logo: 1.5rem;
+
+  --fs-larger: 2.5rem;
+  --fs-large: 2rem;
+  --fs-medium: 1.25rem;
+  --fs-small: 1rem;
+  --fs-smaller: 0.75rem;
+
+  /*____________________ Font Weight ____________________*/
+  --fw-thin: 300;
+  --fw-medium: 500;
+  --fw-semi-bold: 600;
+
+  /*____________________ Margin Bottom ____________________*/
+  --mb-0-25: 0.25rem;
+  --mb-0-5: 0.5rem;
+  --mb-0-75: 0.75rem;
+  --mb-1: 1rem;
+  --mb-1-5: 1.5rem;
+  --mb-2: 2rem;
+  --mb-2-5: 2.5rem;
+  --mb-3: 3rem;
+
+  /*____________________ z index ____________________*/
+  --z-behind: -10;
+  --z-tooltip: 10;
+  --z-fixed: 20;
+  --z-modal: 30;
+}
+
+/*____________________ Variables Dark theme ____________________*/
+
+/*____________________ Button ____________________*/
+.button {
+  display: inline-block;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--clr-light);
+  font-weight: var(--fw-medium);
+  color: var(--clr-light);
+  font-size: var(--fs-small);
+}
+.button:hover {
+  color: red;
+  background-color: white;
+}
+/*========================= BASE =========================*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-size: var(--fs-medium);
+  font-family: var(--font-family-text1);
+  color: var(--clr-dark);
+  background-color: var(--clr-light);
+}
+
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: var(--clr-light);
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*========================= NAVIGATION BAR =========================*/
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+nav {
+  height: 5rem;
+  width: 100%;
+  display: flex;
+  z-index: 10;
+}
+
+/*Styling logo*/
+.nav__logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.75rem;
+  margin-left: 1.5rem;
+}
+.nav__hamburger {
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  right: 5%;
+  top: 50%;
+  transform: translate(-5%, -50%);
+  z-index: 2;
+  transition: all 0.7s ease;
+}
+/*Styling Hamburger Icon*/
+.nav__hamburger div {
+  width: 30px;
+  height: 3px;
+  background: var(--clr-theme);
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+/*Styling Links*/
+.nav__links {
+  height: 100vh;
+  width: 100%;
+  font-size: 1.75rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  background: var(--clr-dark);
+  clip-path: circle(50px at 90% -20%);
+  -webkit-clip-path: circle(50px at 90% -10%);
+  transition: all 0.8s ease-out;
+  pointer-events: none;
+  position: fixed;
+}
+
+.nav__links li a:hover {
+  color: var(--clr-theme);
+}
+.nav__links li {
+  position: relative;
+}
+.nav__links li a::before {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 25%;
+  background-color: #d4cfc2;
+  position: absolute;
+  transition: all ease-in-out 250ms;
+  margin-top: 30px;
+}
+.nav__links li a:hover::before {
+  width: 100%;
+}
+
+.nav__links.open {
+  clip-path: circle(1500px at 90% -10%);
+  -webkit-clip-path: circle(1500px at 90% -10%);
+  pointer-events: all;
+}
+.nav__links li {
+  opacity: 0;
+}
+.nav__links li:nth-child(1) {
+  transition: all 0.5s ease 0.2s;
+}
+.nav__links li:nth-child(2) {
+  transition: all 0.5s ease 0.4s;
+}
+.nav__links li:nth-child(3) {
+  transition: all 0.5s ease 0.6s;
+}
+.nav__links li:nth-child(4) {
+  transition: all 0.5s ease 0.7s;
+}
+
+li.fade {
+  opacity: 1;
+}
+
+/*Animating Hamburger Icon on Click*/
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle .line2 {
+  transition: all 0.1s ease;
+  width: 0;
+}
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
