@@ -40,8 +40,8 @@ scrollContainer.addEventListener("wheel", (evt) => {
 
 
 // ==================== Circular Text ====================
-const text = document.querySelector(".text p");
+const text = document.querySelector(".circle__text p");
 text.innerHTML = text.innerText.split("").map(
     (char, i) => 
-    `<span style="transform:rotate(${i*9.5}deg)">${char}</span>`
+    `<span style="transform:rotate(${i*7.2}deg)">${char}</span>`
 ).join("")

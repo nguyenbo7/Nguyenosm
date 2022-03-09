@@ -8,7 +8,7 @@
 :root {
   /*____________________ Colors ____________________*/
   --clr-dark: #181818;
-  --clr-gray: #696969;
+  --clr-gray: #8d8d8d;
   --clr-light: #d4cfc2;
   --clr-theme: #846a53;
   --clr-border: #bababa;
@@ -223,7 +223,7 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 100vh;
+  height: 90vh;
   color: var(--clr-gray);
 }
 
@@ -304,6 +304,42 @@ main {
     transform: translate3d(0, -3px, 0) rotateZ(0.01deg);
   }
 }
+/*========================= CIRCULAR Section=========================*/
+.circular__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+.circle {
+  position: relative;
+  width: 260px;
+  height: 260px;
+}
+
+.circle__text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: var(--clr-gray);
+  animation: rotateText 10s linear infinite;
+}
+
+@keyframes rotateText {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.circle__text span {
+  position: absolute;
+  /* left: 50%; circle rotates inplace*/
+  transform-origin: 0 130px;
+}
+
 /*____________________ special ____________________*/
 .special__container {
   width: 70vw;
@@ -499,45 +535,4 @@ main {
 .work__element:nth-child(even) {
   background-color: var(--clr-theme);
   color: white;
-}
-
-.circle {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  background: red;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.logo {
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  background: green;
-  border-radius: 50%;
-}
-
-.text {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  animation: rotateText 10s linear infinite;
-}
-
-@keyframes rotateText {
-  0% {
-    transform: rotate(360deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
-.text span {
-  position: absolute;
-  left: 50%;
-  font-size: 1.2em;
-  transform-origin: 0 100px;
 }
