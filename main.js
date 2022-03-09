@@ -2,8 +2,7 @@ const hamburger = document.querySelector(".nav__hamburger");
 const navLinks = document.querySelector(".nav__links");
 const links = document.querySelectorAll(".nav__links li");
 
-hamburger.addEventListener('click', ()=>{
-   //Animate Links
+hamburger.addEventListener('click', () => {
     navLinks.classList.toggle("open");
     links.forEach(link => {
         link.classList.toggle("fade");
@@ -14,7 +13,7 @@ hamburger.addEventListener('click', ()=>{
 });
 
 
-
+// ==================== Cursor ====================
 const cursor = document.querySelector('.cursor');
 
 document.addEventListener('mousemove', e => {
@@ -28,3 +27,21 @@ document.addEventListener('click', () => {
         cursor.classList.remove("expand");
     }, 500)
 })
+
+// ==================== Horizontal Scrolling ====================
+const scrollContainer = document.querySelector(".works__container");
+
+scrollContainer.addEventListener("wheel", (evt) => {
+    evt.preventDefault();
+    scrollContainer.scrollLeft += evt.deltaY;
+});
+
+
+
+
+// ==================== Circular Text ====================
+const text = document.querySelector(".text p");
+text.innerHTML = text.innerText.split("").map(
+    (char, i) => 
+    `<span style="transform:rotate(${i*9.5}deg)">${char}</span>`
+).join("")

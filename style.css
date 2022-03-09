@@ -100,25 +100,23 @@ img {
 
 /*========================= NAVIGATION BAR =========================*/
 header {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   display: flex;
   justify-content: center;
 }
 nav {
+  position: fixed;
   height: 5rem;
   width: 100%;
   display: flex;
   z-index: 10;
+  background-color: #1b1b1b;
 }
 
-/*Styling logo*/
 .nav__logo {
   display: flex;
   align-items: center;
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   margin-left: 1.5rem;
 }
 .nav__hamburger {
@@ -133,10 +131,10 @@ nav {
 }
 /*Styling Hamburger Icon*/
 .nav__hamburger div {
-  width: 30px;
-  height: 3px;
-  background: white;
-  margin: 5px;
+  width: 35px;
+  height: 2.5px;
+  background: aquamarine;
+  margin: 6px;
   transition: all 0.3s ease;
 }
 /*Styling Links*/
@@ -159,7 +157,7 @@ nav {
 }
 
 .nav__links li a:hover {
-  color: var(--clr-theme);
+  color: aquamarine;
 }
 .nav__links li {
   position: relative;
@@ -169,13 +167,14 @@ nav {
   display: block;
   height: 3px;
   width: 25%;
-  background-color: #d4cfc2;
+  background-color: aquamarine;
   position: absolute;
   transition: all ease-in-out 250ms;
   margin-top: 30px;
 }
 .nav__links li a:hover::before {
   width: 100%;
+  background-color: var(--clr-light);
 }
 
 .nav__links.open {
@@ -217,43 +216,27 @@ li.fade {
 
 /*========================= HOME SECTION =========================*/
 main {
-  margin-top: 7rem;
-  width: 100%;
+  margin: 0 1.75rem;
 }
-/*____________________ home__main ____________________*/
 .home__container {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
-  height: 90vh;
-  margin-bottom: 5rem;
+  height: 100vh;
   color: var(--clr-gray);
-}
-.home__adj {
-  color: var(--clr-gray);
-  margin: 1.5rem 0;
-}
-.home__socialMedia-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
-.home__social-icon {
-  font-size: 1.25rem;
-  color: aquamarine;
-  transition-property: color;
-  transition-duration: 950ms;
-  margin: 2.75rem 1rem;
-}
-.home__social-icon:hover {
-  color: var(--clr-hover);
+.home__adj {
+  font-size: 1.125rem;
+  margin: 0 0 1.5rem 0;
 }
 
 .home__profile {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 300px;
   border-radius: 20px;
   box-shadow: rgba(139, 134, 134, 0.25) 0px 30px 60px -12px inset,
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
@@ -262,25 +245,30 @@ main {
 .home__profile-img {
   width: 80%;
   overflow: hidden;
-  animation: morph 3s linear infinite;
 }
-@keyframes morph {
-  0%,
-  100% {
-    border-radius: 40% 60% 70% 30% / 40% 40% 60% 20%;
-  }
-  37% {
-    border-radius: 70% 30% 50% 50% / 30% 30% 70% 50%;
-  }
-  57% {
-    border-radius: 80% 40% 60% 100% / 50% 70% 30% 80%;
-  }
-  87% {
-    border-radius: 100% 60% 70% 100% / 100% 100% 60% 40%;
-  }
+
+.home__socialMedia-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2.125rem 0 2rem 0;
+}
+
+.home__social-icon {
+  font-size: 1.125rem;
+  color: aquamarine;
+  transition-property: color;
+  transition-duration: 950ms;
+  margin: 0 1rem;
+}
+.home__social-icon:hover {
+  color: var(--clr-hover);
+}
+
+.home__text {
+  font-size: 1rem;
 }
 .text__tab {
-  font-size: 1.25rem;
   margin-left: 40px;
 }
 
@@ -288,55 +276,16 @@ main {
   font-family: var(--font-family-barcode);
   font-size: 3rem;
   transition: 750ms;
-  margin: 2rem 0 0 0;
-  /* text-align: end; */
+  margin: 1.5rem 0 0 0;
 }
 
 .gooey {
   background-image: linear-gradient(120deg, orangered 0%, #ff1e00 100%);
   border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
-  animation: morph1 3s linear infinite;
-  transform-style: preserve-3d;
-  outline: 1px solid transparent;
-  will-change: border-radius;
-}
-.gooey:before,
-.gooey:after {
-  content: "";
-  width: 100%;
-  height: 80%;
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
-  box-shadow: 5px 5px 89px rgba(255, 208, 0, 0.21);
-  will-change: border-radius, transform, opacity;
-  animation-delay: 200ms;
-  background-image: linear-gradient(
-    120deg,
-    rgba(0, 0, 0, 0.55) 0%,
-    rgba(238, 158, 9, 0.89) 100%
-  );
-  z-index: -1;
+  animation: morph 3s linear infinite;
 }
 
-.gooey:before {
-  animation: morph1 3s linear infinite;
-  opacity: 0.21;
-  animation-duration: 1.5s;
-}
-
-.gooey:after {
-  animation: morph1 3s linear infinite;
-  animation-delay: 400ms;
-  opacity: 0.89;
-  content: "";
-  line-height: 120px;
-  text-indent: -21px;
-}
-
-@keyframes morph1 {
+@keyframes morph {
   0%,
   100% {
     border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
@@ -355,14 +304,6 @@ main {
     transform: translate3d(0, -3px, 0) rotateZ(0.01deg);
   }
 }
-
-@keyframes fadeIn {
-  100% {
-    transform: scale(1.03);
-    opacity: 0;
-  }
-}
-
 /*____________________ special ____________________*/
 .special__container {
   width: 70vw;
@@ -459,15 +400,6 @@ main {
   border-radius: 1px solid var(--clr-theme);
 }
 
-/* .random__text {
-  width: 70vw;
-  cursor: none;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url("https://i.pinimg.com/originals/1e/36/5f/1e365f856b22e76d26ff1736a269a2fc.png");
-} */
-
 .example {
   width: 70vw;
   cursor: none;
@@ -540,4 +472,72 @@ main {
 .expand {
   animation: cursorAnim3 0.5s forwards;
   border: 1px solid red;
+}
+
+/*========================= Works SECTION =========================*/
+.works__container {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  display: flex;
+  height: 60vh;
+  color: rgb(255, 115, 0);
+  background-color: rgb(32, 32, 32);
+}
+
+.work__element {
+  min-width: 50vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.work__element img {
+  width: 300px;
+  height: auto;
+}
+
+.work__element:nth-child(even) {
+  background-color: var(--clr-theme);
+  color: white;
+}
+
+.circle {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: green;
+  border-radius: 50%;
+}
+
+.text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: rotateText 10s linear infinite;
+}
+
+@keyframes rotateText {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.text span {
+  position: absolute;
+  left: 50%;
+  font-size: 1.2em;
+  transform-origin: 0 100px;
 }
